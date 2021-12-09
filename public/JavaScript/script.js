@@ -7,31 +7,32 @@ window.onload = () => {
     // document.getElementById("name").value = userName;
     
     const socket = io();    // anropa socket.io:s konstruktor  
+    socket.emit('userName', userName); // Till serversidan, skickar med användarnamn
 
     var messages = document.getElementById("messages");
     var online = document.getElementById("online");
+    // var online = document.createElement('ul'); // Skapa en 'unordered list' objekt
     
-    socket.emit('userName', userName);
+    // Används inte just nu.
+    socket.on("remove" , ()  => {
+        showOnline.remove('ul');
+    });
+    
+    // let allUsers = [];     
 
-    
-    // let allUsers = [];
-    
-    // userList.setAttribute("id","onl");
-    
     // Skriver ut
-    socket.on("online", (user) => {        
-        console.log("UsER: " + user)
+       socket.on("online", (user) => {        
+        console.log("UsER: " + user)    // skriver ut på webbläsatens logg    
         
         var userList = document.createElement('li');
+        // userList.setAttribute("class","onlineUser");  //Get mitt 'li' class namn
         userList.textContent =  user;
-        online.appendChild(userList);
+        online.append(userList);               
 
-        //window.scrollTo(0, document.body.scrollHeight);
+        // allUsers = user;
         // allUsers.push(user);
-
-        // for(let i = 0; i < allUsers.length; i++){      
-        
-        // 
+        //window.scrollTo(0, document.body.scrollHeight);
+        // for(let i = 0; i < allUsers.length; i++){     
     });
     
     // ta emot användarinput och skicka meddelande

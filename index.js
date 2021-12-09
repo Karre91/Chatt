@@ -61,13 +61,16 @@ io.on("connection", (socket) => {   // obs - inparametern socket hänvisar till 
       socket.broadcast.emit("typing", data);
     });
 
+    //När någon lämnar chatten
     socket.on('disconnect', function () {
 
       allUsers [users] = " ";
 
+      
       for(let i = 0; i < allUsers.length - 1; i++){
         io.emit("online", allUsers[i]);
       } 
+
       users--;
 
       let newDisconnection;
