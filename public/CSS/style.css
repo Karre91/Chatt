@@ -54,12 +54,39 @@ body {
 #messages > li:nth-child(odd) {
   background: #efefef;
 }
-#typ {
+#typing {
   position: fixed;
-  bottom: 5%;
-  right: 5%;
+  bottom: 50px;
+  right: 50px;
 }
-.showOnline {
+#onlineButton {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background: #333;
+  border: none;
+  padding: 0.25rem;
+  margin: 0.25rem;
+  border-radius: 3px;
+  outline: none;
+  color: #fff;
+}
+#onlineButton:hover {
+  background-color: seagreen;
+}
+#onlineBox {
+  display: none;
+  background-color: white;
+  padding: 3%;
+}
+#onlineButton:hover #onlineBox {
+  color: black;
+  display: block;
+  position: fixed;
+  bottom: 120%;
+  right: 2%;
+  border: solid black;
+}
+/* .showOnline {
   position: fixed;
   bottom: 6%;
   right: 0%;
@@ -67,4 +94,8 @@ body {
   width: 20%;
   background-color: rgba(0, 0, 0, 0.15);
   border: solid red;
-}
+} */
+/* #myMess {
+  float: right;
+  padding-left: 20%;
+} */
